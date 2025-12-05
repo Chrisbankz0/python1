@@ -6,22 +6,21 @@ if(game1 == game2):
 
 
 elif(game1 == "rock"):
- if(game2 == "scissors"):
-	print("player1 wins")
+elif(game2 == "scissors"):
+   print("player1 wins")
 else:
 	print("player2 wins")
 
 elif(game1 == "paper"):
- if(game2 == "rock"):
+elif(game2 == "rock"):
+
 	print("Player1 wins")
 else:
 	print("Player2 wins")
 
 elif(game1 == "scissors"):
- if(game2 == "paper"):
+elif(game2 == "paper"):
+
 	print("Player1 wins")
 else:
 	print("Player2 wins")
-
-else:
-	print("Invalid input")
