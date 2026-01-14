@@ -1,14 +1,10 @@
 letter = input("enter a letter: ")
 
-if letter == "a":
-	print("vowel")
-elif letter == "e":
-	print("vowel")
-elif letter == "i":
-	print("vowel")
-elif letter == "o":
-	print("vowel")
-elif letter == "u":
-	print("vowel")
-else:
-	print("consonant")
+def vowelOrConsonant(x):
+
+    if (x == 'a' or x == 'e' or
+        x == 'i' or x == 'o' or x == 'u'):
+        print("Vowel")
+    else:
+        print("Consonant")
+

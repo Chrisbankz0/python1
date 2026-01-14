@@ -1,6 +1,6 @@
 num1 = int(input("enter number one: "))
-num2 = int(input("enter number one: "))
-num3 = int(input("enter number one: "))
+num2 = int(input("enter number two: "))
+num3 = int(input("enter number three: "))
 
 largest = num1
 

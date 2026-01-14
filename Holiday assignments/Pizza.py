@@ -1,37 +1,42 @@
 import math
 
-print("Welcome to Iya Scambirah pizza joint Ajegunle")
+pizza = print("""
+
+print("Welcome to COHORT 29 pizza joint LEKKI BRANCH")
 print("_______________________________________________")
 print("Pizza type        number of Slices         Price per box")
 print("----------------------------------------------------------")
-print("Sapa Size              4                        2,000       ")
-print("Small Money            6                        2,400       ")
-print("Big Boys               8                        3,000       ")
-print("Odogwu                 12                       4,200       ")
+print("SAPA SIZE              4                        2,000       ")
+print("SMALL MONEY            6                        2,400       ")
+print("BIG BOYS               8                        3,000       ")
+print("ODOGWU                 12                       4,200       ")
+
+""")
 
 
 names = int(input("Enter the number of guest: "))
-pizza_type = input("Enter pizza type: ").lower()
+pizza = input("Enter pizza type: ").upper()
 
-if pizza_type == "sapa size":
-	slice_per_box = 4
-	price_per_box = 2000
+match pizza:
+	case "SAPA SIZE":
+		slice_per_box = 4
+		price_per_box = 2000
 
-elif pizza_type == "small money":
-	slice_per_box = 6
-	price_per_box = 2400
+	case "SMALL MONEY":
+		slice_per_box = 6
+		price_per_box = 2400
 
-elif pizza_type == "big boys":
-	slice_per_box = 8
-	price_per_box = 3000
+	case "BIG BOYS":
+		slice_per_box = 8
+		price_per_box = 3000
 
-elif pizza_type == "odogwu":
-	slice_per_box = 12
-	price_per_box = 4200
+	case "ODOGWU":
+		slice_per_box = 12
+		price_per_box = 4200
 
-else:
-	print("Invalid pizza type")
-	exit()
+	case _:
+		print("Invalid pizza type")
+		exit()
 
 
 boxes = math.ceil(names / slice_per_box)

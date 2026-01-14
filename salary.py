@@ -1,5 +1,5 @@
 salary = int(input("enter salary: "))
-extra  = (salary*1.2)
+extra  = (salary*0.2)
 
 
 print("the originally salary is", salary)
