@@ -8,4 +8,10 @@ def length_Calculator(text):
 
     return count
 
+text = input("enter a word: ")
+
+length = length_Calculator(text)
+
+print(length)
+
 

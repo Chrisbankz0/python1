@@ -1,42 +1,56 @@
 balance = 0
 transactions = []
+count = -1
 
-def deposit():
-	global balance, transactions
+def deposit(balance, transactions):
 
 	amount = int(input("Enter amount to deposit: "))
+	if amount <= 0:
+		print("Invalid amount")
+		return balance, transactions
+
 	balance += amount
+
 	record = f"Deposited: ${amount} | New balance: {balance}"
 
 	transactions.append(record)
 	print("Deposit successful")
 	print(record)
 
-def withdraw():
-	global balance, transactions
+	return balance, transactions
+
+def withdraw(balance, transactions):
 
 	amount = int(input("enter amount to withdraw: "))
 
-	if (amount <= balance):
-		balance -= amount
+	if amount <= 0:
+		print("Invalid amount")
+		return balance, transactions
 
-		record = f"withdrawn: ${amount} | New balance: ${balance}"
 
-		transactions.append(record)
-		print("\nwithdrawal successful")
-		print(record)
-	else:
+	if (amount > balance):
 		print("insufficent funds")
+		return balance, transactions
 
-def show_transactions():
+	balance -= amount
+
+	record = f"withdrawn: ${amount} | New balance: ${balance}"
+
+	transactions.append(record)
+	print("\nwithdrawal successful")
+	print(record) 
+
+	return balance, transactions
+
+def show_transactions(transactions):
 	if len(transactions) == 0:
 		print("No transactions yet")
-	else:
-		for number in range(len(transactions)):
-			print(number + 1, "." , transactions[number])
 
-while True:
-	print("\nWwelcome to the transaction log app")
+	for number in range(len(transactions)):
+		print(number + 1, "." , transactions[number])
+
+while count != 0 :
+	print("\nWelcome to the transaction log app")
 	print("1. Deposit funds")
 	print("2. Withdraw funds")
 	print("3. Show Transactions")
@@ -44,21 +58,24 @@ while True:
 
 	choice = input("\nEnter your choice(1-4): ")
 
-	if choice == "1":
-		deposit()
 
-	elif choice == "2":
-		withdraw()
+	match choice:
 
-	elif choice == "3":
-		show_transactions()
+		case "1":
+			balance, transactions = deposit(balance, transactions)
 
-	elif choice == "4":
-		print("The final balance is: ",balance)
-		show_transactions()
-		print("Thank you for using the Transaction Log app")
-		break
+		case "2":
+			balance, transactions = withdraw(balance, transactions)
 
-	else:
-		print("Invalid choice! please enter 1-4")
+		case "3":
+			show_transactions(transactions)
+
+		case "4":
+			print("The final balance is: ",balance)
+			show_transactions(transactions)
+			print("Thank you for using the Transaction Log app")
+			count = 0
+
+		case _:
+			print("Invalid choice! please enter 1-4")
 

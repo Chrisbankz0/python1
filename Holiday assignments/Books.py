@@ -1,6 +1,6 @@
 import random
 
-books = ["The Strongman", "The Babydaddy", "The Lionheart", "The Nigerian", "The Twat"]
+books = ["the strongman", "the babydaddy", "the lionheart", "the nigerian", "the twat"]
 
 def show_menu():
 	print("Welcome to the book Suggestion System")
@@ -10,6 +10,7 @@ def show_menu():
 	print("4. Update Book")
 	print("5. Show all Books")
 	print("6. Exit")
+
 
 def suggest_book():
 	while True:
@@ -24,46 +25,42 @@ def suggest_book():
 		if choice != "yes":
 			break
 
+
 def add_book():
-	while True:
-		book = input("Enter the new book title: ")
-		if book not in books:
-			books.append(book)
-			print("Book Added Sucessfully")
-		else:
+		book = input("Enter the new book title: ").lower()
+		if book in books:
 			print("Book already Exist")
 
+		else:
+			books.append(book)
+			print("Book Added Sucessfully")
+
 def remove_book():
-	while True:
-		book = input("Enter book title to remove: ")
+		book = input("Enter book title to remove: ").lower()
 		if book in books:
 			books.remove(book)
 			print("Book Removed Sucessfully")
 		else:
 			print("Book doesn't Exist")
 
+
+
 def update_book():
-	while True:
-		old_book = input("Enter the old book title: ")
+	old_book = input("Enter the old book title: ").lower()
 
-		if old_book in books:
-			new_book = input("Enter the new book Title: ")
+	if old_book in books:
+		new_book = input("Enter the new book title: ").lower()
+		index = books.index(old_book)
+		books[index] = new_book
+		print("Book Updated Successfully")
 
-			for book in range(len(books)):
-				if books[book] == old_book:
-					books[book] = new_book
-					break
-			print("Book Updated Sucessfully")
-		else:
-			print("Book doesn't Exist")
+	else:
+		print("Book doesn't Exist")
 
 def show_books():
-		if len(books) == 0:
-			print("No Book Available")
-		else:
-			print("All Books")
-			for book in range(len(books)):
-				print(book + 1, ".", books[book])
+		print("All Books")
+		for book in range(len(books)):
+			print(book + 1, ".", books[book])
 
 while True:
 	show_menu() 
@@ -87,6 +84,7 @@ while True:
 		 show_books()
 
 	elif choice == "6":
+		print("Thank you for using the book suggestion!")
 		break
 
 	else:
